@@ -1,0 +1,74 @@
+#notice_back{
+  margin: 0 auto;
+  width:100%;
+  height:100%;
+  background: url(/src/img/shortback.png);
+  background-repeat: no-repeat;
+  background-size:contain;
+  min-width: 393px;
+  max-width: 554px;
+  min-height: 1050px;
+  max-height: 1050px;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  flex: 8;
+  height: 100vh;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: column; /*수직 정렬*/
+  align-items: center;
+  justify-content: center;
+  }
+  #notice_div1{
+    flex: 1;
+  }
+  #notice_div2{
+    flex: 1;
+  }
+  #notice_div3{
+    flex: 8;
+  }
+  #notice_back_button{
+    background-color: transparent;
+    border: 0;
+    filter: invert(100%);
+    position: relative;
+    left: -90%;
+    top: 33%;
+  }
+  #notice_text{
+    color: white;
+    font-size :xx-large;
+    font-weight: bolder;
+  }
+  #notice_search{
+    position: relative;
+    left: -2%;
+    width:100% ;
+    height: 50%;
+    opacity: 0.5;
+    font-size: x-large;
+  }
+  #notice_grid{
+    position: relative;
+    left: -150%;
+    display: grid;
+    grid-template-columns: 400%;
+  }
+  #notice_divcol{
+    width: 100%;
+    padding: 0.5rem;
+    border-bottom: 2px solid black;
+
+    background: #fff;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  #notice_title{
+    position: relative;
+    left: -2%;
+    font-size: large;
+  }
+  #notice_contents{
+    font-size: medium;
+  }
