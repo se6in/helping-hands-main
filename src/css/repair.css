@@ -1,101 +1,154 @@
-#repair_back{
-  margin: 0 auto;
-  width:100%;
-  height:100%;
-  background: url(/src/img/backback.PNG);
-  background-repeat: no-repeat;
-  background-size:cover;
-  min-width: 393px;
-  max-width: 554px;
-  max-height: 1050px;
-  overflow-x:hidden;
-  overflow-y:hidden;
-  flex: 8;
-  height: 100vh;
-  display:flex;
-  flex-wrap: wrap;
-  flex-direction: column; /*수직 정렬*/
-  align-items: center;
-  justify-content: center;
-  }
- 
-  #repair_div1{
+@media (min-width: 300px)  { 
+  #repair_back{
+    margin: 0 auto;
+    width:80%;
+    height:50%;
+    background: url(/src/img/shortback.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+    min-width: 360px;
+    max-width: 540px;
+    min-height: 574px;
+    z-index: 0;
+    flex: 10;
+    height: 100vh;
+    display:flex;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    flex-wrap: wrap;
+    flex-direction: column; /*수직 정렬*/
+    align-items: center;
+    justify-content: center;
+    }
+    
+   #repair_text{
+    display: inline;
+    position: relative;
+    right: 20%;
+    top: 50%;
     width: 100%;
-    flex: 1;
-  }
-  #repair_div2{
-    flex: 4;
-    width: 500px;  
-  }
-  #repair_div3{
-    flex:1;
-  }
-  #repair_div4{
-    flex:1;
-  }
-  #repair_div5{
-    flex:4;
-    text-overflow: clip;
-  }
+    font-weight: bold;
+   
+    font-size:xx-large;
+    color: white;
+    
+   }
   #repair_back_button{
-    background-color: transparent;
-    border: 0;
-    position: relative;
-    left: -140%;
-    top: 30px;
-    filter: invert(0)
+      background-color: transparent;
+      border: 0;
+      position: relative;
+      left: -60%;
+      top: 50%;
+      margin-top: 4%;
+      z-index: -1;
+      filter: invert(100);
+      
+      
   }
-  #repair_text{
-    position: relative;
-    left: -50%;
-    color: black;
-    font-size :xx-large;
-    font-weight: bolder;
+    #repair_img {
+    width: 500px;
+    height: 300px;
+    background-color: white;
   }
-  #repair_title{
-    width:500px ;
-    height: 30%;
-    opacity: 0.5;
-    font-size: large;
-    margin-top: 30px;
-  }
-  #repair_address{
-    width:500px ;
+    #repair_title{
+    width: 88%;
     height: 30px;
-    margin-top: 5px;
-    opacity: 0.5;
-    font-size: large;
-  }
-  
-  #repair_button{
-    margin-bottom: 5%;
-    width: 20%;
-    height: 5%;
     border: 1px solid black;
+    margin-top: 20px;
     position: relative;
-    top: 0%;
-    left: 20%;
+    left: 4%;
+    z-index: 0;
+    position: relative;
+    }
+    #repair_address{
+    position: relative;
+    width: 88%;
+    margin-top: 3px;
+    left: 4%;
+    height: 30px;
+    z-index: 0;
+    position: relative;
+    border: 1px solid black;
+    
+    }
+    
+    #post_name{
+      float: right;
+      position: relative;
+      left: -71%;
+      border: 0px;
+      height: 32px;
+      background-color: white;
+  
+    }
+    #repair_back{
+      position: relative;
+      top: -10%;
+    }
+    #repair_div1{
+      position: relative;
+      left: 2%;
+      top: -7%;
+    }
+    #repair_div2{
+      position: relative;
+      width: 90%;
+      top: -6%;
+    }
+    #repair_div3{
+      width: 100%;
+      position: relative;
+      top: 15%;
+      left: -3%;
+      margin-left: 5%;
+    }
+    #repair_div4{
+      width: 100%;
+      position: relative;
+      top: 5%;
+    }
+    #repair_div5{
+      width: 100%;
+      height: 40%;
+      position: relative;
+      top: 15%;
+      margin-left: 5%;
+      z-index: -1;
+    }
+  #repair_img2{
+    max-height: 50px;
+    margin-top: 5%;
+  }
+    #repair_story{
+      width: 88%;
+      height: 50%;
+      top: 5%;
+      z-index: 0;
+      position: relative;
+      margin-left: 1%;
+      font-size: medium;
+
+    }
+    #repair_select{
+      position: relative;
+  
+    }
+    #repair_button{
+      top: 5%; 
+      left: 65%;   
+      position: relative;
+      font-size: 20px;
+      border-radius:unset;
+      background-color: rgb(152, 78, 222);
+      transition-duration: 0.4s;
+      border: 0px;
+    }
   }
   #repair_button:hover{
     background-color: #4CAF50;
     color: white;
     border-radius: 30px;
-    transition-duration: 0.4s;
   }
-  #repair_story{
-      position: relative;
-      left: -15%;
-      top: 3%;
-      opacity: 0.5;
-      padding: 10px;
-      width: 100%;
-      height: 200px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      box-shadow: 1px 1px 1px #999;
-      font-size: large;
-  }
-  img{
-    width: 35%;
-    height: 35%;
+  h2{
+    filter: invert(100);
   }

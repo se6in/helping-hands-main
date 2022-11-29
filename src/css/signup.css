@@ -1,3 +1,4 @@
+@media (min-width: 300px) {  
 #signup_background1{
   margin: 0 auto;
   width:100%;
@@ -5,9 +6,8 @@
   background: url(/src/img/shortback.png);
   background-repeat: no-repeat;
   background-size:100% 60%;
-  min-width: 393px;
   max-width: 554px;
-  min-height: 700px;
+  min-height: 572px;
   overflow-x:hidden;
   overflow-y:hidden;
   display:flex;
@@ -16,7 +16,17 @@
   align-items: center;
   justify-content: center;
 }
-#singnup_container5{
+#signup_back_button{
+  background-color: transparent;
+  border: 0;
+  position: relative;
+  left: -35%;
+  height: 100%;
+  filter: invert(100);
+  margin-top: 5%;
+}
+
+#signup_container5{
     align-items: center;
     text-align: center;
     flex-grow:1;
@@ -67,9 +77,13 @@
     color:#ffffff;
     font-family:Arial;
     font-size:35px;
-      width:30vh;
-      height:10vh;
+      width:200px;
+      height:60px;
     font-weight:bold;
     text-decoration:none;
   }
-  
+  #signup_repasswordicon{
+    margin-left: 1%;
+    margin-top: 2%;
+  }
+}

@@ -1,12 +1,12 @@
+@media (min-width: 300px) {  
 #SignIn_Background{
   margin: 0 auto;
   width:100%;
   height:100%;
   background-repeat: no-repeat;
-  background-size:100% 60%;
-  min-width: 393px;
+  background-size:100% 80%;
   max-width: 554px;
-  min-height: 700px;
+  min-height: 572px;
   overflow-x:hidden;
   overflow-y:hidden;
   display:flex;
@@ -15,16 +15,26 @@
   align-items: center;
   justify-content: center;
 }
+#signin_back_button{
+  background-color: transparent;
+  border: 0;
+  position: relative;
+  right: 35%;
+  height: 100%;
+  filter: invert(100);
+}
 #SignIn_container0{
-    flex-grow:0.09;
+    flex-grow:0.04;
     min-width:30vh;
     max-width:70vh;
     justify-content: flex-end;
     align-items: center;
     text-align: center;
+    margin-left: -30%;
+    margin-top: -5%;
   }
 #SignIn_container1{
-    flex-grow:0.1;
+    flex-grow:0.3;
     min-width:30vh;
     max-width:70vh;
     justify-content: flex-end;
@@ -42,11 +52,10 @@
     justify-content: flex-end;
     align-items: center;
     text-align: center;
+    margin-top: -20%;
   }
   #SignIn_container3{
     flex-grow:0.04;
-    min-width:30vh;
-    max-width:70vh;
     justify-content: flex-end;
     align-items: center;
     text-align: left;
@@ -55,8 +64,6 @@
   }
   #SignIn_container4{
     flex-grow:0.04;
-    min-width:30vh;
-    max-width:70vh;
     justify-content: flex-end;
     align-items: center;
     text-align: left;
@@ -88,8 +95,7 @@
     display:flex;
   }
 #userLogo{
-    width:35%;
-
+    width:100px;
 }
 #SignIn_login1{
     background-color:#7B6EB0;
@@ -100,9 +106,10 @@
     color:#ffffff;
     font-family:Arial;
     font-size:30px;
-      width:20vh;
-      height:10vh;
+      width:130px;
+      height:50px;
     font-weight:bold;
     text-decoration:none;
 }
 
+}

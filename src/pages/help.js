@@ -1,17 +1,29 @@
 /*global kakao*/ 
-import React, { useEffect,useState } from 'react'
+import React, { useEffect,useState,useCallback } from 'react'
 import "../css/help.css"
 import axios from "axios";
+import leftarrow from '../img/leftarrow.png';
 import { required } from "../_actions/userAction";
+import { datarequire } from '../_actions/userAction';
 import { useDispatch } from "react-redux";
-import logo7 from '../img/pang.jpg';
 import { useNavigate, useResolvedPath } from "react-router-dom";
+
 function Help(){ 
-    const navigate = useNavigate();
-    const [menuOpen, setMenuOpen] = useState(false)
+  const M = window.M;
+  const navigate = useNavigate();
     const [List,setList] =useState();
     const [kakaoMap, setKakaoMap] = useState(null);
     const [Faddress,setFaddress]= useState();
+    const [session,setSession]= useState(null);
+    const [menuOpen, setMenuOpen] = useState(false)
+    const [DataList,setDataList]= useState(null);
+    const [sign,setsign] =useState(null);
+ useEffect(()=>{
+   axios.get(`/api/users/Session`)
+   .then(response => {
+       setSession(response.data.id);
+   })
+ },[]);
     useEffect(()=>{
         axios.get(`/api/repair/list`)
         .then(response => {
@@ -28,8 +40,10 @@ function Help(){
     };
     const map = new kakao.maps.Map(container, options);
     setKakaoMap(map);
+    setMenuOpen(false);
   };
-
+  const dispatch = useDispatch();
+  const Navigate = useNavigate();
   const geocoder = new kakao.maps.services.Geocoder();
   {List && List.data.map((item)=>
       geocoder.addressSearch(`${item.address}`,function(result){
@@ -48,28 +62,42 @@ function Help(){
                 level: 5,
                 isPanto:true,
               };
-             
+              setsign(item.Img1);
+              setMenuOpen(true);
+              setFaddress(item.address);
             const map = new kakao.maps.Map(container, options);
-               alert(marker.id);
-               setFaddress(item.address);
-              setKakaoMap(map);
+            kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+                    setMenuOpen(false);
+          });
+          let body={
+            address:item.address,
+          }
+          dispatch(datarequire(body))
+          .then(response=>{
+           if(response.payload.success){
+             setDataList(response.payload.data);
+             console.log(response.payload.data);
+         }
+        })
+               setKakaoMap(map);
             });
+              
               marker.id=item.id_count;
               marker.setMap(kakaoMap);
       
       })
    )}
-   const dispatch = useDispatch();
-   const Navigate = useNavigate();
    const onSubmit=(e)=>{
     e.preventDefault();
     let body={
-      address:Faddress
+      address:Faddress,
+      session:session,
+      user:sign
     }
     dispatch(required(body))
     .then(response =>{
       if(response.payload.success){
-      alert("신청이 정상적으로 완료되었습니다.");
+      M.pop.alert("신청이 정상적으로 완료되었습니다.");
       Navigate("/Home");
   }
   else{
@@ -81,39 +109,42 @@ function Help(){
 
   return( 
   <div id="help_container"> 
-    <button onClick={initMap}>전체화면으로</button>
-    <button >신청</button>
-    <button onClick={() => {setMenuOpen(menuOpen => !menuOpen)}}>{menuOpen ? 'Close' : 'Open'}</button>
-   
-    <div id="map" style={{ width: "100vw", height: "100vh" }}>
-    <div id = {menuOpen ? 'action' : ''} className="help_nav">
-        <div id= "smallcomponent_back" >
+          <button id="help_back_button" onClick={() => {navigate("/Home")}} >
+          <img src={leftarrow} style={{ width: 40, height: 30 }} alt='화살표'  />
+          </button>
+          <div id = "help_text">봉사신청</div>
+    <div><button id="help_btn" onClick={initMap}>전체화면으로</button></div>
+    
+  <div id="map" style={{ width: "100vw", height: "90vh" }}>
+  {DataList && DataList.map((item)=>  
+  <div id = {menuOpen ? 'action' : ''} className="help_nav"key={item._id}>
+        <div id= "smallcomponent_back">
             <div id = "smallcomponent_left">
                 <div id = "smallcomponent_div1">
-                <button id="smallcomponent_back_button" onClick={() => {navigate("/Home")}} >
+                <button id="smallcomponent_back_button" onClick={onSubmit} >
                     봉사신청
                     </button>
                     <br></br>
                     <div id ="smallcomponent_title">
-                        <label>제목   </label>
-                        <label style={{color:"orange"}}>지진</label>
+                        <label>제목 </label>
+                        <label style={{color:"orange"}}>{item.title}</label>
                     </div>
                     
                 </div>
                 <div id = "smallcomponent_div2">
                     <div id ="smallcomponent_address">
                         <label>주소   </label>
-                        <label style={{color:"orange"}}>안동시</label>
+                        <label style={{color:"orange"}}>{item.address}</label>
                     </div>
                 </div>
                 <div id = "smallcomponent_div3">
-                <label id = "smallcomponent_text" >내용입니다.</label>
+                <label id = "smallcomponent_text" >{item.text}</label>
                 </div>
                 <br></br>
                 <div id = "smallcomponent_picture">
-                    <img id = "help_img" src={logo7} style={{ width:"100%" }}/>
+                    <img id = "help_img" src={"http://172.20.10.8:9000/files/"+item.path} style={{ width:"100%" }}/>
                 </div>
-
+              
                 
             </div>
 
@@ -124,9 +155,9 @@ function Help(){
            
         </div>
       </div>
+ )}
   </div>
-    </div>
-  
+</div>
   )
 }
 export default Help

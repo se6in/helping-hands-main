@@ -3,8 +3,11 @@ import React,{useState,useCallback} from "react";
 import { useNavigate } from "react-router-dom";
 import logo from '../img/logo.png';
 import logo2 from '../img/33.png';
-import logo3 from '../img/11.png';
-import logo4 from '../img/55.png';
+import emailicon from '../img/emailicon.png';
+import logo3 from './img/11.png';
+import phonenumber from '../img/phonenumber.png';
+import repasswordicon from '../img/repassword.png'
+import leftarrow from '../img/leftarrow.png';
 import '../css/signup.css'
 import { registerUser } from "../_actions/userAction";
 import { useDispatch } from "react-redux";
@@ -73,6 +76,9 @@ function SignUp(props){
   }
     return(   
     <div id="signup_background1">
+            <button id="signup_back_button" onClick={() => {Navigate("/")}} >
+               <img src={leftarrow} style={{ width: 30, height: 20 }} alt='화살표' />
+            </button>
          <img id="singnup_logo2" alt="로고" src={logo}/>
           <div id ="singnup_container6">
           <div>이름<div id="singnup_pwd">
@@ -97,7 +103,7 @@ function SignUp(props){
               onChange={OnChangeEmail}
               >
               </input>
-            <img src={logo3} style={{
+            <img src={emailicon} style={{
                 width:"9%",
             }}/>
             </div>
@@ -123,8 +129,8 @@ function SignUp(props){
             onChange={onChangerePassword}
             value={repassword}
             ></input>
-            <img src={logo2} style={{
-                width:"10%",
+            <img id="signup_repasswordicon" src={repasswordicon} style={{
+                width:"9%",
             }}/>
             </div>
             </div>
@@ -137,7 +143,7 @@ function SignUp(props){
             value={phone}
             >
             </input>
-            <img src={logo4} style={{
+            <img src={phonenumber} style={{
                 width:"10%",
             }}/>
             </div>

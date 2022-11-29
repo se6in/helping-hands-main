@@ -22,7 +22,7 @@ function Noticedetail(){
                     <button id="noticedetail_back_button" onClick={() => {navigate("/Home")}} >
                         <img src={leftarrow} style={{ width: 30, height: 20 }} alt='화살표' />
                     </button>
-                    <div id="repair_text">공지 사항 상세 페이지</div>
+                    <div id="noticedetail_text">공지 사항 상세 페이지</div>
                 </div>
                 <div id="noticedetail_div2">
                     <img src={profile} id="noticedetail_profile" alt='마이페이지' />

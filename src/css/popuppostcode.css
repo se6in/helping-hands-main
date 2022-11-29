@@ -1,0 +1,14 @@
+#postCode_btn{
+    background-color: white;
+    position: relative;
+    width: 100px;
+    height: 40px;
+    left: 35%;
+    top: 50%;
+    border-radius: 50px;
+    font-size: 18px;
+
+}
+#popuppostcode_post{
+    z-index: 10;
+}

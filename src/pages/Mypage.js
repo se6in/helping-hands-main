@@ -71,21 +71,21 @@ axios.get('/api').then(response=>{console.log(response)})
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;
                     <img src={rightarrow} style={{ width: 20, height: 20 }} alt='화살표' />
             </button>
-            <button id="mypage_button4" onClick={() => {navigate("/home")}}>
+            <button id="mypage_button4" onClick={() => {navigate("/require")}}>
             &emsp;<img src={participation} style={{ width: 20, height: 20 }} alt='봉사 참여' />
                     &emsp;&emsp;
                     봉사 참여 확인
-                    &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    &nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     <img src={rightarrow} style={{ width: 20, height: 20 }} alt='화살표' />
             </button>
-            <button id="mypage_button5" onClick={() => {navigate("/home")}}>
+            <button id="mypage_button5" onClick={() => {navigate("/helping")}}>
             &emsp;<img src={recruitment} style={{ width: 20, height: 20 }} alt='봉사 모집' />
                     &emsp;&emsp;
-                    봉사 모집 및 신청
-                    &nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    봉사자 확인
+                    &nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     <img src={rightarrow} style={{ width: 20, height: 20 }} alt='화살표' />
             </button>
-            <button id="mypage_button6" onClick={() => {navigate("/firsetpage")}}>
+            <button id="mypage_button6" onClick={() => {navigate("/")}}>
             &emsp;<img src={logoutbtn} style={{ width: 20, height: 20 }} alt='로그 아웃' />
                     &emsp;&emsp;
                     로그아웃
